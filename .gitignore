@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+data/
+.atl/
+.DS_Store
+.archify/**/*.finalize*.json
+.archify/**/*.browser-check.json
+.archify/**/*.delivery*.json
