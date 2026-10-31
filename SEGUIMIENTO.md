@@ -2,7 +2,7 @@
 
 Cierre: lunes 2 de noviembre de 2026, 23:59, hora de Bogotá.
 
-**Estado actual:** bloqueado hasta que el notebook base y el dataset estén en esta carpeta.
+**Estado actual:** plan ajustado aprobado por Alejandro; notebook en desarrollo.
 
 ## Checklist
 
@@ -11,9 +11,10 @@ Cierre: lunes 2 de noviembre de 2026, 23:59, hora de Bogotá.
 - [x] Visto bueno de Alejandro al plan
 - [x] `CLAUDE.md` y `SEGUIMIENTO.md`
 - [x] Diagrama del proceso
-- [ ] `03_Assignment_Sesion1_BoW_Word2Vec` en la carpeta (lo pone Alejandro)
-- [ ] Dataset BBC news en la carpeta (lo pone Alejandro)
-- [ ] Notebook base leído y mapeo de secciones confirmado
+- [x] `03_Assignment_Sesion1_BoW_Word2Vec` en la carpeta
+- [x] Dataset BBC news en la carpeta
+- [x] Notebook base y dataset leídos
+- [x] Visto bueno de Alejandro al plan ajustado
 - [ ] Commit del notebook base intacto
 - [ ] Entorno `uv` y `uv.lock`, según lo que importe el notebook
 
@@ -61,6 +62,12 @@ Cierre: lunes 2 de noviembre de 2026, 23:59, hora de Bogotá.
 
 Se registran aquí a medida que llegan, con fecha y lo que cambió.
 
+- 2026-10-31: en Teams no se compartió ningún notebook de la clase. El notebook base oficial es `03_Assignment_Sesion1_BoW_Word2Vec.ipynb`, del Moodle, y se trabaja sobre ese. Cambio: no se espera otro notebook; las decisiones de tokenización "de clase" se contrastan solo con los conteos de referencia.
+
+## Pendientes futuros (fuera del alcance de esta sesión)
+
+- [ ] Anteproyecto del proyecto final. Vence el 29 de noviembre de 2026. Word de máximo 2 páginas, en grupo de 3 a 6 personas. Secciones: problema, estado del arte, dataset, método propuesto (opcional) y resultados esperados.
+
 ## Bitácora
 
 ### 2026-10-31
@@ -69,6 +76,8 @@ Se registran aquí a medida que llegan, con fecha y lo que cambió.
 - Alejandro dio el visto bueno y pidió diagramar y documentar el proceso.
 - Creados `CLAUDE.md`, `SEGUIMIENTO.md` y el diagrama del proceso.
 - El notebook base y el dataset aún no están en la carpeta. El notebook y el entorno quedan a la espera.
+- Llegaron el notebook base y `BBC news.csv` (SHA-256 `caad658d…673d`). Se leyeron y se ajustó el plan; pendiente de visto bueno.
+- Mediciones exploratorias, sin escribir en el repo: 1.000 noticias, sin categorías en el CSV. Con minúsculas y `[a-z]+(?:'[a-z]+)*` salen 522.750 tokens y 25.616 palabras únicas. Si además se normaliza `’` a `'`, salen 521.019 y 25.755.
 
 ## Dudas abiertas
 

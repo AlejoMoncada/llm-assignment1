@@ -34,24 +34,26 @@ Referencia de la clase para verificar conteos: 1.000 noticias, unos 523.000 toke
 
 ## Secciones y criterios
 
-| Sección | Criterio |
-|---|---|
-| 1. EDA del corpus | C1 |
-| 2a. Tokenización | C1 |
-| 2b. Ley de Zipf en log-log, frecuencias y bigramas | C2 |
-| 3. Bag of Words por categoría | C3 |
-| 4. Concordancias e hipótesis distribucional | C4 |
-| 5. Word2Vec con ventanas 2, 5 y 10 | C5 |
-| 6. Análisis crítico | C5 y requisito de entrega |
-| 7. Conclusiones | Todos, sin criterio propio |
+| Sección del notebook base | Peso | Criterio |
+|---|---|---|
+| 0. Preparación, con EDA breve | — | C1 |
+| 1. Tokenización y preparación del corpus | 20 % | C1 |
+| 2. Frecuencias, bigramas y Zipf | 20 % | C2 |
+| 3. Bag of Words | 20 % | C3 |
+| 4. Concordancias y contexto | 15 % | C4 |
+| 5. Word2Vec, con ventanas 2, 5 y 10 | 20 % | C5 |
+| 6. Integración, con el análisis crítico | 5 % | C5 y requisito de entrega |
+| Conclusión (máximo 5 líneas) | Incluida en el 5 % | Todos |
 
 ## Reglas
 
-- Corpus: solo el dataset del Moodle. No descargar de otra fuente. Sin los archivos no se empieza el notebook.
+- Corpus: solo `BBC news.csv` del Moodle, en la raíz. No descargar de otra fuente. No tiene columna de categorías, así que BoW se hace sobre los primeros `n` documentos, como pide la plantilla.
+- Plantilla: el notebook del Moodle es el único base. Se conservan sus secciones y nombres de funciones; al entregar no queda ningún `TODO` ni `pass`. Límites de texto: BoW 3 líneas, conclusión 5 líneas.
+- Tokenización: sin tokenizadores externos (tampoco `CountVectorizer` ni NLTK). Minúsculas, sin números por defecto, `[a-z]+(?:'[a-z]+)*`, sin normalizar `’`; el efecto de normalizarlo se muestra medido. Para oraciones, `;` cuenta como separador porque el CSV une párrafos con `; `.
 - Entorno: `uv`, con las dependencias fijadas en `uv.lock`.
-- Reproducibilidad: semillas fijas en Python, NumPy y gensim, con `workers=1` y `PYTHONHASHSEED`. Word2Vec se entrena con 3 semillas para separar el efecto de la ventana del ruido.
+- Reproducibilidad: semillas fijas en Python, NumPy y gensim, con `workers=1` y un `hashfxn` estable, de modo que los vectores no dependen de `PYTHONHASHSEED`. `entrenar_word2vec(ventana, seed=42)` conserva el nombre de la plantilla; se agrega `modelo_10` y 2 semillas extra solo para medir el ruido.
 - Git: solo commits locales con Conventional Commits, sin coautoría, sin push y sin publicar nada. Un commit por criterio; el notebook base se versiona primero intacto. El dataset queda fuera de git.
-- Notebook: todo el código dentro del `.ipynb`, sin módulos externos. Texto en español y código en inglés.
+- Notebook: todo el código dentro del `.ipynb`, sin módulos externos. Texto en español y código en inglés. Se conserva "Autor: Andres Rosso" y se agrega el nombre de Alejandro como estudiante.
 - Corpus único: se carga una vez y todas las secciones usan los mismos documentos y el mismo tokenizador. Quitar stopwords es solo una vista en tablas de frecuencias, bigramas y BoW, y se justifica.
 - Conclusiones: se escriben al final, con cifras del propio notebook. Son un borrador: Alejandro las reescribe con su voz y revisa la política de IA del curso.
 - Entrega: la sube Alejandro al Moodle.
@@ -66,5 +68,5 @@ Referencia de la clase para verificar conteos: 1.000 noticias, unos 523.000 toke
 Con el notebook en su ubicación definitiva, ejecutar dos veces desde un kernel limpio y comparar los resultados:
 
 ```bash
-PYTHONHASHSEED=0 uv run jupyter nbconvert --to notebook --execute --inplace <notebook>.ipynb
+uv run jupyter nbconvert --to notebook --execute --inplace 03_Assignment_Sesion1_BoW_Word2Vec.ipynb
 ```
