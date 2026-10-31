@@ -8,69 +8,323 @@
     "output": ".archify/workflow-plan-assignment-20261031-082111/plan-assignment.html",
     "legend": {
       "entries": {
-        "external": { "label": "Alejandro" },
-        "backend": { "label": "Trabajo de los agentes" },
-        "database": { "label": "Criterio de la rúbrica en el notebook" },
-        "security": { "label": "Bloqueo" }
+        "external": {
+          "label": "Alejandro"
+        },
+        "backend": {
+          "label": "Trabajo de los agentes"
+        },
+        "database": {
+          "label": "Criterio de la rúbrica en el notebook"
+        }
       }
     }
   },
   "lanes": [
-    { "id": "alejandro", "label": "Alejandro" },
-    { "id": "opus", "label": "Opus" },
-    { "id": "haiku", "label": "Haiku" },
-    { "id": "notebook", "label": "Notebook" },
-    { "id": "cierre", "label": "Cierre" }
+    {
+      "id": "alejandro",
+      "label": "Alejandro"
+    },
+    {
+      "id": "opus",
+      "label": "Opus"
+    },
+    {
+      "id": "haiku",
+      "label": "Haiku"
+    },
+    {
+      "id": "notebook",
+      "label": "Notebook"
+    },
+    {
+      "id": "cierre",
+      "label": "Cierre"
+    }
   ],
   "phases": [
-    { "id": "preparacion", "label": "Preparación", "fromCol": 0, "toCol": 1 },
-    { "id": "desarrollo", "label": "Desarrollo por criterio", "fromCol": 2, "toCol": 5, "variant": "emphasis" }
+    {
+      "id": "preparacion",
+      "label": "Preparación",
+      "fromCol": 0,
+      "toCol": 1
+    },
+    {
+      "id": "desarrollo",
+      "label": "Desarrollo por criterio",
+      "fromCol": 2,
+      "toCol": 5,
+      "variant": "emphasis"
+    }
   ],
-  "mainPath": ["ok", "docs", "files", "read", "env", "c1", "c2", "c3", "c4", "c5", "concl"],
+  "mainPath": [
+    "ok",
+    "docs",
+    "files",
+    "read",
+    "env",
+    "c1",
+    "c2",
+    "c3",
+    "c4",
+    "c5",
+    "concl"
+  ],
   "nodes": [
-    { "id": "ok", "lane": "alejandro", "col": 0, "type": "external", "label": "Visto bueno", "tag": "hecho" },
-    { "id": "files", "lane": "alejandro", "col": 1, "type": "security", "label": "Notebook base y dataset", "sublabel": "Moodle, curso 27378", "tag": "pendiente" },
-    { "id": "obs", "lane": "alejandro", "col": 3, "type": "external", "label": "Observaciones", "sublabel": "durante el avance" },
-    { "id": "docs", "lane": "opus", "col": 0, "type": "backend", "label": "Documentación", "sublabel": "CLAUDE.md, SEGUIMIENTO.md", "tag": "hecho" },
-    { "id": "read", "lane": "opus", "col": 1, "type": "backend", "label": "Lee el notebook base", "sublabel": "su estructura manda" },
-    { "id": "design", "lane": "opus", "col": 3, "type": "backend", "label": "Diseña e interpreta", "sublabel": "revisa cada entrega" },
-    { "id": "env", "lane": "haiku", "col": 1, "type": "backend", "label": "Entorno uv", "sublabel": "commit del base intacto" },
-    { "id": "cells", "lane": "haiku", "col": 3, "type": "backend", "label": "Celdas y ejecuciones", "sublabel": "lo mecánico" },
-    { "id": "c1", "lane": "notebook", "col": 1, "type": "database", "label": "C1 Corpus", "sublabel": "EDA, tokens, conteos" },
-    { "id": "c2", "lane": "notebook", "col": 2, "type": "database", "label": "C2 Zipf", "sublabel": "frecuencias, bigramas" },
-    { "id": "c3", "lane": "notebook", "col": 3, "type": "database", "label": "C3 BoW", "sublabel": "pierde el orden" },
-    { "id": "c4", "lane": "notebook", "col": 4, "type": "database", "label": "C4 Concordancias", "sublabel": "contextos, ventana" },
-    { "id": "c5", "lane": "notebook", "col": 5, "type": "database", "label": "C5 Word2Vec", "sublabel": "ventanas 2, 5 y 10" },
-    { "id": "concl", "lane": "cierre", "col": 5, "type": "backend", "label": "Crítica y conclusiones", "sublabel": "borrador con cifras" },
-    { "id": "run", "lane": "cierre", "col": 4, "type": "backend", "label": "Ejecución doble", "sublabel": "kernel limpio, rúbrica" },
-    { "id": "revision", "lane": "cierre", "col": 3, "type": "external", "label": "Revisión de Alejandro", "sublabel": "reescribe conclusiones" },
-    { "id": "entrega", "lane": "cierre", "col": 2, "type": "external", "label": "Entrega en Moodle", "sublabel": "lunes 2 nov, 23:59" }
+    {
+      "id": "ok",
+      "lane": "alejandro",
+      "col": 0,
+      "type": "external",
+      "label": "Visto bueno",
+      "tag": "hecho"
+    },
+    {
+      "id": "files",
+      "lane": "alejandro",
+      "col": 1,
+      "type": "external",
+      "label": "Notebook y dataset",
+      "sublabel": "Moodle, curso 27378",
+      "tag": "hecho"
+    },
+    {
+      "id": "obs",
+      "lane": "alejandro",
+      "col": 3,
+      "type": "external",
+      "label": "Observaciones",
+      "sublabel": "durante el avance"
+    },
+    {
+      "id": "docs",
+      "lane": "opus",
+      "col": 0,
+      "type": "backend",
+      "label": "Documentación",
+      "sublabel": "CLAUDE.md, SEGUIMIENTO.md",
+      "tag": "hecho"
+    },
+    {
+      "id": "read",
+      "lane": "opus",
+      "col": 1,
+      "type": "backend",
+      "label": "Lee el notebook base",
+      "sublabel": "su estructura manda",
+      "tag": "hecho"
+    },
+    {
+      "id": "design",
+      "lane": "opus",
+      "col": 3,
+      "type": "backend",
+      "label": "Diseña e interpreta",
+      "sublabel": "revisa cada entrega",
+      "tag": "hecho"
+    },
+    {
+      "id": "env",
+      "lane": "haiku",
+      "col": 1,
+      "type": "backend",
+      "label": "Entorno uv",
+      "sublabel": "commit del base intacto",
+      "tag": "hecho"
+    },
+    {
+      "id": "cells",
+      "lane": "haiku",
+      "col": 3,
+      "type": "backend",
+      "label": "Celdas y ejecuciones",
+      "sublabel": "lo mecánico",
+      "tag": "hecho"
+    },
+    {
+      "id": "c1",
+      "lane": "notebook",
+      "col": 1,
+      "type": "database",
+      "label": "C1 Corpus",
+      "sublabel": "522.750 tokens",
+      "tag": "hecho"
+    },
+    {
+      "id": "c2",
+      "lane": "notebook",
+      "col": 2,
+      "type": "database",
+      "label": "C2 Zipf",
+      "sublabel": "frecuencias, bigramas",
+      "tag": "hecho"
+    },
+    {
+      "id": "c3",
+      "lane": "notebook",
+      "col": 3,
+      "type": "database",
+      "label": "C3 BoW",
+      "sublabel": "vectores idénticos",
+      "tag": "hecho"
+    },
+    {
+      "id": "c4",
+      "lane": "notebook",
+      "col": 4,
+      "type": "database",
+      "label": "C4 Concordancias",
+      "sublabel": "contextos, ventana",
+      "tag": "hecho"
+    },
+    {
+      "id": "c5",
+      "lane": "notebook",
+      "col": 5,
+      "type": "database",
+      "label": "C5 Word2Vec",
+      "sublabel": "ventanas 2, 5 y 10",
+      "tag": "hecho"
+    },
+    {
+      "id": "concl",
+      "lane": "cierre",
+      "col": 5,
+      "type": "backend",
+      "label": "Crítica y conclusiones",
+      "sublabel": "borrador con cifras",
+      "tag": "hecho"
+    },
+    {
+      "id": "run",
+      "lane": "cierre",
+      "col": 4,
+      "type": "backend",
+      "label": "Ejecución doble",
+      "sublabel": "kernel limpio, rúbrica",
+      "tag": "hecho"
+    },
+    {
+      "id": "revision",
+      "lane": "cierre",
+      "col": 3,
+      "type": "external",
+      "label": "Revisión de Alejandro",
+      "sublabel": "reescribe conclusiones",
+      "tag": "pendiente"
+    },
+    {
+      "id": "entrega",
+      "lane": "cierre",
+      "col": 2,
+      "type": "external",
+      "label": "Entrega en Moodle",
+      "sublabel": "lunes 2 nov, 23:59",
+      "tag": "pendiente"
+    }
   ],
   "edges": [
-    { "id": "ok-docs", "from": "ok", "to": "docs" },
-    { "id": "docs-files", "from": "docs", "to": "files", "variant": "dashed" },
-    { "id": "files-read", "from": "files", "to": "read", "variant": "security" },
-    { "id": "read-env", "from": "read", "to": "env" },
-    { "id": "env-c1", "from": "env", "to": "c1" },
-    { "id": "c1-c2", "from": "c1", "to": "c2", "variant": "emphasis" },
-    { "id": "c2-c3", "from": "c2", "to": "c3", "variant": "emphasis" },
-    { "id": "c3-c4", "from": "c3", "to": "c4", "variant": "emphasis" },
-    { "id": "c4-c5", "from": "c4", "to": "c5", "variant": "emphasis" },
-    { "id": "c5-concl", "from": "c5", "to": "concl" },
-    { "id": "concl-run", "from": "concl", "to": "run" },
-    { "id": "run-revision", "from": "run", "to": "revision" },
-    { "id": "revision-entrega", "from": "revision", "to": "entrega" },
-    { "id": "obs-design", "from": "obs", "to": "design", "label": "ajustes", "variant": "dashed", "role": "branch" },
-    { "id": "design-cells", "from": "design", "to": "cells", "label": "encarga", "variant": "dashed", "role": "branch" },
-    { "id": "cells-c3", "from": "cells", "to": "c3", "label": "cada criterio", "variant": "dashed", "role": "branch" }
+    {
+      "id": "ok-docs",
+      "from": "ok",
+      "to": "docs"
+    },
+    {
+      "id": "docs-files",
+      "from": "docs",
+      "to": "files"
+    },
+    {
+      "id": "files-read",
+      "from": "files",
+      "to": "read"
+    },
+    {
+      "id": "read-env",
+      "from": "read",
+      "to": "env"
+    },
+    {
+      "id": "env-c1",
+      "from": "env",
+      "to": "c1"
+    },
+    {
+      "id": "c1-c2",
+      "from": "c1",
+      "to": "c2",
+      "variant": "emphasis"
+    },
+    {
+      "id": "c2-c3",
+      "from": "c2",
+      "to": "c3",
+      "variant": "emphasis"
+    },
+    {
+      "id": "c3-c4",
+      "from": "c3",
+      "to": "c4",
+      "variant": "emphasis"
+    },
+    {
+      "id": "c4-c5",
+      "from": "c4",
+      "to": "c5",
+      "variant": "emphasis"
+    },
+    {
+      "id": "c5-concl",
+      "from": "c5",
+      "to": "concl"
+    },
+    {
+      "id": "concl-run",
+      "from": "concl",
+      "to": "run"
+    },
+    {
+      "id": "run-revision",
+      "from": "run",
+      "to": "revision"
+    },
+    {
+      "id": "revision-entrega",
+      "from": "revision",
+      "to": "entrega"
+    },
+    {
+      "id": "obs-design",
+      "from": "obs",
+      "to": "design",
+      "label": "ajustes",
+      "variant": "dashed",
+      "role": "branch"
+    },
+    {
+      "id": "design-cells",
+      "from": "design",
+      "to": "cells",
+      "label": "encarga",
+      "variant": "dashed",
+      "role": "branch"
+    },
+    {
+      "id": "cells-c3",
+      "from": "cells",
+      "to": "c3",
+      "label": "cada criterio",
+      "variant": "dashed",
+      "role": "branch"
+    }
   ],
   "cards": [
     {
       "dot": "rose",
       "title": "Estado al 31 de octubre",
       "items": [
-        "Hecho: visto bueno, documentación y este diagrama",
-        "Bloqueo: faltan el notebook base y el dataset del Moodle",
+        "Hecho: notebook completo, ejecutado dos veces con resultados iguales",
+        "Pendiente de Alejandro: revisar, reescribir conclusiones, revisar la política de IA y entregar",
         "Bitácora y observaciones en SEGUIMIENTO.md"
       ]
     },
@@ -79,7 +333,7 @@
       "title": "Verificación de conteos",
       "items": [
         "Referencia: 1.000 noticias, unos 523.000 tokens y unas 25.600 palabras únicas",
-        "Una diferencia mayor a 1 % se investiga y se explica; el tokenizador no se ajusta para que dé el número"
+        "Obtenido: 1.000 noticias, 522.750 tokens y 25.616 palabras únicas"
       ]
     },
     {

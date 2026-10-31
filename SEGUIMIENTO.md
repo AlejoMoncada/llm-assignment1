@@ -2,7 +2,7 @@
 
 Cierre: lunes 2 de noviembre de 2026, 23:59, hora de Bogotá.
 
-**Estado actual:** plan ajustado aprobado por Alejandro; notebook en desarrollo.
+**Estado actual:** notebook completo y ejecutado. Falta lo que le toca a Alejandro: reescribir las conclusiones, revisar la política de IA y entregar.
 
 ## Checklist
 
@@ -15,48 +15,51 @@ Cierre: lunes 2 de noviembre de 2026, 23:59, hora de Bogotá.
 - [x] Dataset BBC news en la carpeta
 - [x] Notebook base y dataset leídos
 - [x] Visto bueno de Alejandro al plan ajustado
-- [ ] Commit del notebook base intacto
-- [ ] Entorno `uv` y `uv.lock`, según lo que importe el notebook
+- [x] Commit del notebook base intacto
+- [x] Entorno `uv` y `uv.lock`, según lo que importe el notebook
 
 ### C1 Corpus
 
-- [ ] EDA: noticias, categorías, longitudes y duplicados
-- [ ] Tokenización y vocabulario
-- [ ] Conteos frente a la referencia (1.000 noticias, unos 523.000 tokens, unas 25.600 palabras únicas)
-- [ ] Decisiones de preprocesamiento justificadas, con su efecto medido
+- [x] EDA: noticias, fechas, longitudes, duplicados y artefactos
+- [x] Tokenización, oraciones y vocabulario
+- [x] Conteos frente a la referencia: 1.000 noticias, 522.750 tokens (−0,05 %) y 25.616 palabras únicas (+0,06 %)
+- [x] Decisiones de preprocesamiento justificadas, con su efecto medido
 
 ### C2 Frecuencias y Zipf
 
-- [ ] Frecuencias de palabras
-- [ ] Bigramas
-- [ ] Zipf en log-log con pendiente ajustada
-- [ ] Explicación con evidencia de dónde se cumple y dónde se desvía
+- [x] Frecuencias de palabras
+- [x] Bigramas
+- [x] Zipf en log-log con pendientes por tramo
+- [x] Explicación con evidencia de dónde se cumple y dónde se desvía
 
 ### C3 BoW
 
-- [ ] Matriz BoW y términos por categoría
-- [ ] Demostración de que pierde el orden: vectores idénticos, comprobado en el código
+- [x] Matriz documento-término de los primeros `n` documentos
+- [x] Demostración de que pierde el orden: vectores idénticos, comprobado en el código
 
 ### C4 Concordancias
 
-- [ ] Concordancias y comparación de contextos de una misma palabra
-- [ ] Efecto de la ventana con ±2, ±5 y ±10
-- [ ] Conexión con la hipótesis distribucional
+- [x] Índice, concordancias y comparación de `strike` y `market`
+- [x] Efecto de la ventana con ±2, ±5 y ±10
+- [x] Conexión con la hipótesis distribucional
 
 ### C5 Word2Vec
 
-- [ ] Modelos con ventanas 2, 5 y 10 y 3 semillas
-- [ ] Vecinos por similitud coseno y solapamiento entre ventanas
-- [ ] Estabilidad según la frecuencia de la palabra
-- [ ] Análisis crítico: cercanía no es sinonimia ni verdad, con vecinos reales
+- [x] Modelos con ventanas 2, 5 y 10 y 3 semillas
+- [x] Vecinos por similitud coseno y solapamiento entre ventanas
+- [x] Estabilidad según la frecuencia de la palabra
+- [x] Integración con `doctors`
+- [x] Análisis crítico: cercanía no es sinonimia ni verdad, con vecinos reales
 
 ### Cierre
 
-- [ ] Borrador de conclusiones con cifras del notebook
-- [ ] Ejecución doble desde kernel limpio, con resultados iguales
-- [ ] Revisión contra la rúbrica y los requisitos de entrega
-- [ ] Alejandro reescribe las conclusiones y revisa la política de IA del curso
-- [ ] Alejandro sube el `.ipynb` al Moodle
+- [x] Borrador de conclusiones con cifras del notebook
+- [x] Ejecución doble desde kernel limpio, con resultados iguales
+- [x] Cifras del texto contrastadas con las salidas del notebook
+- [ ] Alejandro revisa el notebook y sus respuestas
+- [ ] Alejandro reescribe las conclusiones con su voz y revisa la política de IA del curso
+- [ ] Alejandro vuelve a ejecutar el notebook si cambia algo en las celdas de código
+- [ ] Alejandro sube el `.ipynb` al Moodle antes del lunes 2 de noviembre, 23:59, hora de Bogotá
 
 ## Observaciones de Alejandro
 
@@ -78,8 +81,12 @@ Se registran aquí a medida que llegan, con fecha y lo que cambió.
 - El notebook base y el dataset aún no están en la carpeta. El notebook y el entorno quedan a la espera.
 - Llegaron el notebook base y `BBC news.csv` (SHA-256 `caad658d…673d`). Se leyeron y se ajustó el plan; pendiente de visto bueno.
 - Mediciones exploratorias, sin escribir en el repo: 1.000 noticias, sin categorías en el CSV. Con minúsculas y `[a-z]+(?:'[a-z]+)*` salen 522.750 tokens y 25.616 palabras únicas. Si además se normaliza `’` a `'`, salen 521.019 y 25.755.
+- Plan ajustado aprobado. Notebook completado en un commit por criterio y ejecutado.
+- Word2Vec: gensim imprime `Exception ignored in: ...our_dot_float` al entrenar. Con tres combinaciones de NumPy y SciPy y con distinto `PYTHONHASHSEED`, los vectores salen idénticos. Queda visible y explicado en el notebook.
+- Costo conocido de no normalizar `’`: el fragmento `s` entra al top 10 sin stop words (1.370). Está explicado en el notebook.
+- Texto repetido al final de las notas (`follow bbc`, `story ideas`): se deja para no alterar los conteos de referencia, y se avisa en el notebook.
 
 ## Dudas abiertas
 
 - Descriptores de los niveles de la rúbrica (0 / 0,5 / 0,7 / 0,8 / 1): no los tenemos; se apunta al nivel máximo.
-- Política de IA del curso: no consultada.
+- Política de IA del curso: no consultada; la revisa Alejandro.

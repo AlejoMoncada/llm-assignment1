@@ -8,3 +8,4 @@ data/
 .archify/**/*.browser-check.json
 .archify/**/*.delivery*.json
 BBC news.csv
+.archify/**/review-*/
