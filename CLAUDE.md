@@ -48,7 +48,8 @@ Referencia de la clase para verificar conteos: 1.000 noticias, unos 523.000 toke
 ## Reglas
 
 - Corpus: solo `BBC news.csv` del Moodle, en la raíz. No descargar de otra fuente. No tiene columna de categorías, así que BoW se hace sobre los primeros `n` documentos, como pide la plantilla.
-- Plantilla: el notebook del Moodle es el único base. Se conservan sus secciones y nombres de funciones; al entregar no queda ningún `TODO` ni `pass`. Límites de texto: BoW 3 líneas, conclusión 5 líneas.
+- Plantilla: el notebook del Moodle es el único base. Se conservan sus secciones y nombres de funciones, pero no se copia el enunciado: el texto va en primera persona, con tono de estudiante. Al entregar no queda ningún `TODO` ni `pass`. Límites de texto: BoW 3 líneas, conclusión 5 líneas.
+- Gráficos: seaborn, con la paleta definida al inicio del notebook. El título dice el hallazgo, las anotaciones marcan los puntos clave y los valores se calculan de los datos.
 - Tokenización: sin tokenizadores externos (tampoco `CountVectorizer` ni NLTK). Minúsculas, sin números por defecto, `[a-z]+(?:'[a-z]+)*`, sin normalizar `’`; el efecto de normalizarlo se muestra medido. Para oraciones, `;` cuenta como separador porque el CSV une párrafos con `; `.
 - Entorno: `uv`, con las dependencias fijadas en `uv.lock`.
 - Reproducibilidad: semillas fijas en Python, NumPy y gensim, con `workers=1` y un `hashfxn` estable, de modo que los vectores no dependen de `PYTHONHASHSEED`. `entrenar_word2vec(ventana, seed=42)` conserva el nombre de la plantilla; se agrega `modelo_10` y 2 semillas extra solo para medir el ruido.

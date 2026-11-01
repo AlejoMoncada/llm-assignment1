@@ -56,7 +56,9 @@ Cierre: lunes 2 de noviembre de 2026, 23:59, hora de Bogotá.
 - [x] Borrador de conclusiones con cifras del notebook
 - [x] Ejecución doble desde kernel limpio, con resultados iguales
 - [x] Cifras del texto contrastadas con las salidas del notebook
-- [ ] Alejandro revisa el notebook y sus respuestas
+- [x] Primera revisión de Alejandro: texto sin enunciado copiado y gráficos con seaborn
+- [ ] Alejandro revisa la versión con los cambios
+- [ ] Alejandro confirma el push
 - [ ] Alejandro reescribe las conclusiones con su voz y revisa la política de IA del curso
 - [ ] Alejandro vuelve a ejecutar el notebook si cambia algo en las celdas de código
 - [ ] Alejandro sube el `.ipynb` al Moodle antes del lunes 2 de noviembre, 23:59, hora de Bogotá
@@ -66,6 +68,8 @@ Cierre: lunes 2 de noviembre de 2026, 23:59, hora de Bogotá.
 Se registran aquí a medida que llegan, con fecha y lo que cambió.
 
 - 2026-10-31: en Teams no se compartió ningún notebook de la clase. El notebook base oficial es `03_Assignment_Sesion1_BoW_Word2Vec.ipynb`, del Moodle, y se trabaja sobre ese. Cambio: no se espera otro notebook; las decisiones de tokenización "de clase" se contrastan solo con los conteos de referencia.
+
+- 2026-11-01: Alejandro pidió quitar o reescribir las celdas que copian el enunciado, en primera persona y con tono natural, y rehacer los gráficos con seaborn o Altair para que cuenten una historia. Sin cambiar cifras ni lógica. Cambio: texto reescrito y 7 gráficos en seaborn (5 nuevos). No hacer push hasta que confirme.
 
 ## Pendientes futuros (fuera del alcance de esta sesión)
 
@@ -85,6 +89,13 @@ Se registran aquí a medida que llegan, con fecha y lo que cambió.
 - Word2Vec: gensim imprime `Exception ignored in: ...our_dot_float` al entrenar. Con tres combinaciones de NumPy y SciPy y con distinto `PYTHONHASHSEED`, los vectores salen idénticos. Queda visible y explicado en el notebook.
 - Costo conocido de no normalizar `’`: el fragmento `s` entra al top 10 sin stop words (1.370). Está explicado en el notebook.
 - Texto repetido al final de las notas (`follow bbc`, `story ideas`): se deja para no alterar los conteos de referencia, y se avisa en el notebook.
+
+### 2026-11-01
+
+- Texto: se quitaron las instrucciones del enunciado y la celda final de entrega; se conservan los títulos de sección, los pesos y los nombres de función.
+- Gráficos: seaborn en vez de Altair, porque deja imágenes dentro del `.ipynb` que se ven sin depender de JavaScript. Longitud de noticias y Zipf rehechos; nuevos: frecuencias y bigramas, efecto de la ventana, similitud de `doctors` por ventana, repetición de vecinos según frecuencia y pares opuestos. Se agregó `seaborn` a las dependencias.
+- Verificación: ejecución desde kernel limpio dos veces, con salidas de texto e imágenes idénticas. Las salidas de texto de las 20 celdas de código anteriores son iguales a las de antes del cambio.
+- Pendiente: push, a la espera de la confirmación de Alejandro.
 
 ## Dudas abiertas
 
