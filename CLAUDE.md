@@ -48,7 +48,7 @@ Referencia de la clase para verificar conteos: 1.000 noticias, unos 523.000 toke
 ## Reglas
 
 - Corpus: solo `BBC news.csv` del Moodle, en la raíz. No descargar de otra fuente. No tiene columna de categorías, así que BoW se hace sobre los primeros `n` documentos, como pide la plantilla.
-- Plantilla: el notebook del Moodle es el único base. Se conservan sus secciones y nombres de funciones, pero no se copia el enunciado: el texto va en primera persona, con tono de estudiante. Al entregar no queda ningún `TODO` ni `pass`. Límites de texto: BoW 3 líneas, conclusión 5 líneas.
+- Plantilla: el notebook del Moodle es el único base. Se conservan sus secciones y nombres de funciones, pero no se copia el enunciado: el texto va en primera persona, con tono de estudiante. Al entregar no queda ningún `TODO` ni `pass`. Límites de texto: BoW 3 líneas, conclusión 5 líneas. Los bloques adicionales se marcan como "(Extra, fuera de la rúbrica)".
 - Gráficos: seaborn, con la paleta definida al inicio del notebook. El título dice el hallazgo, las anotaciones marcan los puntos clave y los valores se calculan de los datos.
 - Hilo conductor: el viaje de contar palabras a espacios latentes densos, con hipótesis antes de cada gráfica o tabla pesada y hallazgo después. Todo ejemplo sale del corpus y de las salidas reales; si un caso no se sostiene, se dice.
 - Extras: TF-IDF (solo `TfidfTransformer`, sobre conteos del tokenizador propio), t-SNE, `adjustText` con `iter_lim` fijo para que la imagen sea determinista, y tabla resumen. Los tiempos de esa tabla cambian en cada ejecución; las cifras no.
@@ -56,7 +56,7 @@ Referencia de la clase para verificar conteos: 1.000 noticias, unos 523.000 toke
 - Entorno: `uv`, con las dependencias fijadas en `uv.lock`.
 - Reproducibilidad: semillas fijas en Python, NumPy y gensim, con `workers=1` y un `hashfxn` estable, de modo que los vectores no dependen de `PYTHONHASHSEED`. `entrenar_word2vec(ventana, seed=42)` conserva el nombre de la plantilla; se agrega `modelo_10` y 2 semillas extra solo para medir el ruido.
 - Git: solo commits locales con Conventional Commits, sin coautoría, sin push y sin publicar nada. Un commit por criterio; el notebook base se versiona primero intacto. El dataset queda fuera de git.
-- Notebook: todo el código dentro del `.ipynb`, sin módulos externos. Texto en español y código en inglés. Se conserva "Autor: Andres Rosso" y se agrega el nombre de Alejandro como estudiante.
+- Notebook: todo el código dentro del `.ipynb`, sin módulos externos. Texto y comentarios en español; identificadores nuevos en inglés o según la plantilla. La portada dice "Profesor: Andrés Rosso" y "Estudiante: Alejandro Moncada".
 - Corpus único: se carga una vez y todas las secciones usan los mismos documentos y el mismo tokenizador. Quitar stopwords es solo una vista en tablas de frecuencias, bigramas y BoW, y se justifica.
 - Conclusiones: se escriben al final, con cifras del propio notebook. Son un borrador: Alejandro las reescribe con su voz y revisa la política de IA del curso.
 - Entrega: la sube Alejandro al Moodle.

@@ -73,6 +73,8 @@ Se registran aquí a medida que llegan, con fecha y lo que cambió.
 
 - 2026-11-01, 6:17 a. m.: Alejandro pidió un hilo conductor ("el viaje de las representaciones"), gráficas de nivel publicación y mejor experiencia para el evaluador, con todos los ejemplos tomados del corpus. Cambio: 7 celdas de código nuevas, 5 de ellas con gráfico; ver bitácora. Push autorizado.
 
+- 2026-11-01: Alejandro pidió contar tal cual la línea base de Word2Vec y el caso de `bank`, y una revisión final contra la rúbrica con 13 puntos, sin cambiar cifras. También autorizó crear `main` desde el commit final, hacerle push y dejarla como rama por defecto en GitHub.
+
 ## Pendientes futuros (fuera del alcance de esta sesión)
 
 - [ ] Anteproyecto del proyecto final. Vence el 29 de noviembre de 2026. Word de máximo 2 páginas, en grupo de 3 a 6 personas. Secciones: problema, estado del arte, dataset, método propuesto (opcional) y resultados esperados.
@@ -111,6 +113,16 @@ Se registran aquí a medida que llegan, con fecha y lo que cambió.
   - Self-attention queda como conexión conceptual: no se entrenó ningún Transformer.
 - `adjustText` limita por tiempo por defecto y cambiaba la imagen de t-SNE entre ejecuciones; se fijó `iter_lim=500`.
 - `%%capture` oculta el aviso de gensim en las celdas de entrenamiento.
+
+### 2026-11-01, revisión final contra la rúbrica
+
+- Línea base: el 0,79 del par se muestra junto a 0,68 de mediana al azar, con histograma. Se explica como sesgo del promedio: dos tokens al azar según su frecuencia dan 0,36, y sube con la longitud de la oración (0,58 a 0,73). Quitar stop words no lo cambia (0,68).
+- `bank`: mezcla sentidos sin quedar claramente a mitad de camino. Se probaron `charge`, `trust` y `fire`, y ninguna lo muestra mejor. El puente a Transformers cierra con lo sólido: no todas las palabras del contexto pesan igual.
+- Tabla resumen: pasa de media a mediana al azar, igual que la celda de oraciones, y agrega la brecha. Por eso 0,720 (media, ventana 2) ahora se ve como 0,743 (mediana).
+- Corrección a lo pedido en el punto 6: la ventana 2 no da la mayor brecha, sino la menor (0,072). Tiene el mayor coseno (0,816) y la mayor base (0,743). La mayor brecha es la de la ventana 10 (0,189). Así quedó escrito.
+- Punto 10: la celda 24 no tiene comentarios; los dos comentarios en inglés estaban en la celda de ruido entre ventanas y semillas, y ahí se tradujeron.
+- Conclusión: se agregó el efecto de la ventana y se mantiene en 5 líneas, uniendo las dos de BoW.
+- Etiquetas de t-SNE con `iter_lim=3000`; la proyección no cambia. `main` y la rama por defecto se crean desde este commit.
 
 ## Dudas abiertas
 
