@@ -58,7 +58,7 @@ Cierre: lunes 2 de noviembre de 2026, 23:59, hora de Bogotá.
 - [x] Cifras del texto contrastadas con las salidas del notebook
 - [x] Primera revisión de Alejandro: texto sin enunciado copiado y gráficos con seaborn
 - [ ] Alejandro revisa la versión con los cambios
-- [ ] Alejandro confirma el push
+- [x] Alejandro confirma el push
 - [ ] Alejandro reescribe las conclusiones con su voz y revisa la política de IA del curso
 - [ ] Alejandro vuelve a ejecutar el notebook si cambia algo en las celdas de código
 - [ ] Alejandro sube el `.ipynb` al Moodle antes del lunes 2 de noviembre, 23:59, hora de Bogotá
@@ -70,6 +70,8 @@ Se registran aquí a medida que llegan, con fecha y lo que cambió.
 - 2026-10-31: en Teams no se compartió ningún notebook de la clase. El notebook base oficial es `03_Assignment_Sesion1_BoW_Word2Vec.ipynb`, del Moodle, y se trabaja sobre ese. Cambio: no se espera otro notebook; las decisiones de tokenización "de clase" se contrastan solo con los conteos de referencia.
 
 - 2026-11-01: Alejandro pidió quitar o reescribir las celdas que copian el enunciado, en primera persona y con tono natural, y rehacer los gráficos con seaborn o Altair para que cuenten una historia. Sin cambiar cifras ni lógica. Cambio: texto reescrito y 7 gráficos en seaborn (5 nuevos). No hacer push hasta que confirme.
+
+- 2026-11-01, 6:17 a. m.: Alejandro pidió un hilo conductor ("el viaje de las representaciones"), gráficas de nivel publicación y mejor experiencia para el evaluador, con todos los ejemplos tomados del corpus. Cambio: 7 celdas de código nuevas, 5 de ellas con gráfico; ver bitácora. Push autorizado.
 
 ## Pendientes futuros (fuera del alcance de esta sesión)
 
@@ -95,7 +97,20 @@ Se registran aquí a medida que llegan, con fecha y lo que cambió.
 - Texto: se quitaron las instrucciones del enunciado y la celda final de entrega; se conservan los títulos de sección, los pesos y los nombres de función.
 - Gráficos: seaborn en vez de Altair, porque deja imágenes dentro del `.ipynb` que se ven sin depender de JavaScript. Longitud de noticias y Zipf rehechos; nuevos: frecuencias y bigramas, efecto de la ventana, similitud de `doctors` por ventana, repetición de vecinos según frecuencia y pares opuestos. Se agregó `seaborn` a las dependencias.
 - Verificación: ejecución desde kernel limpio dos veces, con salidas de texto e imágenes idénticas. Las salidas de texto de las 20 celdas de código anteriores son iguales a las de antes del cambio.
-- Pendiente: push, a la espera de la confirmación de Alejandro.
+- Push autorizado por Alejandro y hecho: `0d586fa` en `origin/master`.
+
+### 2026-11-01, guía de las 6:17 a. m.
+
+- Apertura: gancho, resumen ejecutivo y tabla de contenidos. Hipótesis y hallazgo en cada sección.
+- Nuevos: TF-IDF frente a frecuencia, evidencia del límite de BoW, `spy` frente a heatmap denso, t-SNE de 5 anclas, similitud de 5 oraciones, puente hacia Transformers con `bank` y tabla resumen. Se agregaron `adjusttext` y `scipy` a las dependencias.
+- Casos que no se sostienen del todo, y así quedan escritos:
+  - Word2Vec promediado da 0,79 al par de testigos, pero dos oraciones al azar ya dan 0,68 de mediana.
+  - El par de la huelga da 0,60, por debajo de la mediana.
+  - `bank` queda en el medio solo con evidencia débil, porque sus contextos promediados se parecen entre sí (0,95 a 0,98).
+  - Promediar el contexto acierta el sentido de `bank` el 45,5 % de las veces, menos que el 68,2 % del sentido mayoritario.
+  - Self-attention queda como conexión conceptual: no se entrenó ningún Transformer.
+- `adjustText` limita por tiempo por defecto y cambiaba la imagen de t-SNE entre ejecuciones; se fijó `iter_lim=500`.
+- `%%capture` oculta el aviso de gensim en las celdas de entrenamiento.
 
 ## Dudas abiertas
 

@@ -3,6 +3,7 @@ name = "llm-assignment1"
 version = "0.1.0"
 requires-python = ">=3.12"
 dependencies = [
+    "adjusttext>=1.4.0",
     "gensim>=4.4.0",
     "ipykernel>=7.4.0",
     "jupyter>=1.1.1",
@@ -11,5 +12,6 @@ dependencies = [
     "numpy>=2.5.4",
     "pandas>=3.1.0",
     "scikit-learn>=1.9.1",
+    "scipy>=1.18.1",
     "seaborn>=0.13.2",
 ]
